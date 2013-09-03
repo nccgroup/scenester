@@ -4,6 +4,7 @@
  */
 package screenshots;
 
+import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,19 +13,30 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -37,6 +49,9 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        userAgentModel.addElement(new UserAgent("Android 2.1 - Nexus One - Safari 530.17", "Mozilla/5.0 (Linux; U; Android 2.1; en-us; Nexus One Build/ERD62) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17"));
+        userAgentChkList.setModel(userAgentModel);
+        setTitle("Scenester");
     }
 
     /**
@@ -59,6 +74,9 @@ public class Main extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         userAgentListFile = new javax.swing.JTextField();
         browseUserAgentBtn = new javax.swing.JButton();
+        importBtn = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        userAgentChkList = new javax.swing.JList();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         importMenuItem = new javax.swing.JMenuItem();
@@ -81,7 +99,7 @@ public class Main extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,15 +172,30 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        importBtn.setText("Import");
+        importBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Main.this.actionPerformed(evt);
+            }
+        });
+
+        userAgentChkList.setToolTipText("User-Agent List");
+        jScrollPane2.setViewportView(userAgentChkList);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(userAgentListFile)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(browseUserAgentBtn)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(userAgentListFile)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(browseUserAgentBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(importBtn)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -171,7 +204,10 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userAgentListFile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(browseUserAgentBtn))
+                    .addComponent(browseUserAgentBtn)
+                    .addComponent(importBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -242,7 +278,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -255,54 +291,82 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void runBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runBtnActionPerformed
-        // TODO add your handling code here:
-        if(userAgentList == null)
-        {
-            return;
-        }else if(userAgentList.size() == 0)
-        {
-            userAgentList.add("Mozilla/5.0 (Linux; U; Android 0.5; en-us) AppleWebKit/522+ (KHTML, like Gecko) Safari/419.3");
-        }
+        String timeStamp = new SimpleDateFormat("dd_MM_yyyy_HHmm").format(Calendar.getInstance().getTime());
+        File destFolder = new File(rootFolder + "\\" + timeStamp);
+        /* Validate URLs and User-Agent list exise */
+        /* validate URL box contain something */
         String txtAtea_text = ipListTxtArea.getText();
         if ((txtAtea_text == null) || (txtAtea_text.trim().length() <= 0)) {
+            JOptionPane.showMessageDialog(this, "Please enter target URL", "URL's Missing", JOptionPane.ERROR_MESSAGE);
             return;
         }
         String urls[] = txtAtea_text.split("\\n");
+        /* Validate URL box contian atleast one line */
         if (urls.length < 0) {
+            JOptionPane.showMessageDialog(this, "Please enter target URL", "URL's Missing", JOptionPane.ERROR_MESSAGE);
             return;
         }
+
+        /* Iterate through all the urls one by one and then open each url with selected user agent header*/
         for (int i = 0; i < urls.length; i++) {
-             for (Iterator it = userAgentList.iterator(); it.hasNext();) {
-                           FirefoxProfile profile = new FirefoxProfile();
 
-            profile.setPreference("general.useragent.override", it.next().toString());
-            WebDriver driver = new FirefoxDriver(profile);
-            if ((urls[i].indexOf("http://") == -1) && (urls[i].indexOf("https://") == -1)) {
-                driver.get(protocol + "://" + urls[i]);
+            int result[] = userAgentChkList.getSelectedIndices();
+            if (result.length != 0) {
+                for (int j = 0; j < result.length; j++) {
+
+                    FirefoxProfile profile = new FirefoxProfile();
+                    UserAgent temp = (UserAgent) userAgentModel.get(result[i]);
+                    profile.setPreference("general.useragent.override", temp.getUserAgent());
+                    WebDriver driver = new FirefoxDriver(profile);
+                    if ((urls[i].indexOf("http://") == -1) && (urls[i].indexOf("https://") == -1)) {
+                        driver.get(protocol + "://" + urls[i]);
+                    } else {
+                        driver.get(urls[i]);
+                    }
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+
+                    try {
+                        // Now you can do whatever you need to do with it, for example copy somewhere
+                        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+                        String tempFilename = URLEncoder.encode(urls[i], "UTF-8") + "_" + (counter++) + ".png";
+                        FileUtils.copyFile(scrFile, new File(destFolder.getAbsolutePath() + "\\" + tempFilename));
+                        System.out.println(destFolder.getAbsolutePath());
+
+                    } catch (IOException ex) {
+                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                    } finally {
+                        driver.close();
+                    }
+
+                }
+
+
             } else {
-                driver.get(urls[i]);
+                JOptionPane.showMessageDialog(this, "Select atleast one User-Agent", "User-Agent Missing", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-                 try {
-                     Thread.sleep(5000);
-                 } catch (InterruptedException ex) {
-                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                 }
-            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
-            try {
-
-                // Now you can do whatever you need to do with it, for example copy somewhere
-                FileUtils.copyFile(scrFile, new File(URLEncoder.encode(urls[i], "UTF-8")+(counter++) + ".png"));
-            } catch (IOException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                driver.close();
-            }
-            }
 
         }
 
-
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop desktop = Desktop.getDesktop();
+                desktop.open(destFolder);
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else
+        {
+            JOptionPane.showMessageDialog(this, "Screen Shots copied to the:" + destFolder.getAbsolutePath(), "Finish", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
 
     }//GEN-LAST:event_runBtnActionPerformed
 
@@ -373,37 +437,67 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "This program is released as open source by NCC Group Plc - http://www.nccgroup.com/\n" + "Developed by Sharique Shaikh, sharique.shaikh@nccgroup.com");;
         } else if (evt.getSource() == browseUserAgentBtn) {
             /* opening open file dialog to select text file that can be loaded into text area. */
+            /* Import Useragent list from the XML file format of the XML file must be as follow
+             *<scenester>
+             *	<useragent description="Chrome 4.0.302.2 (OS X 10_5_8 Intel)" useragent="Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_8; en-US) AppleWebKit/532.8 (KHTML, like Gecko) Chrome/4.0.302.2 Safari/532.8" platform="Windows" />
+             *	<useragent description="Chrome 4.0.302.2 (OS X 10_5_8 Intel)" useragent="Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_8; en-US) AppleWebKit/532.8 (KHTML, like Gecko) Chrome/4.0.302.2 Safari/532.8" platform="Windows" />
+             *</scenester>
+             * 
+             */
             fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            userAgentList.clear();
+            //userAgentList.clear();
             int returnVal = fileChooser.showOpenDialog(this);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File openFile = fileChooser.getSelectedFile();
-                userAgentListFile.setText(openFile.getAbsolutePath());
-                try {
-                    BufferedReader br = new BufferedReader(new FileReader(openFile));
-                    String line;
-                    while ((line = br.readLine()) != null) {
-                        if ((!line.trim().startsWith("#")) && (line.trim().length() > 0)) {
-                            userAgentList.add(line);
-                        }
-
-                    }
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                for (Iterator it = userAgentList.iterator(); it.hasNext();) {
-
-                    System.out.println(it.next());
-
-                }
-
-                System.out.println(openFile.getAbsoluteFile());
-                //open file and read file line by line and appent into test area.
-
+                openUserAgentFile = fileChooser.getSelectedFile();
+                userAgentListFile.setText(openUserAgentFile.getAbsolutePath());
             }
 
+        } else if (evt.getSource() == importBtn) {
+            /* Import XML file into the list file
+             */
+
+            /*make sure that value in userAgentListFile text fiel and openUserAgentFile file Dialog box is same */
+            if (openUserAgentFile != null) {
+                if ((userAgentListFile.getText().equalsIgnoreCase(openUserAgentFile.getAbsolutePath())) && (openUserAgentFile.getAbsolutePath().trim().length() != 0)) {
+
+                    /*Loading XML File*/
+                    try {
+                        DocumentBuilder db = dbf.newDocumentBuilder();
+                        Document doc = db.parse(openUserAgentFile);
+                        doc.getDocumentElement().normalize();
+
+                        NodeList rootNode = doc.getElementsByTagName("scenester");
+                        Node rutNode = rootNode.item(0);
+                        counter = 0;
+                        if (rutNode.getNodeType() == Node.ELEMENT_NODE) {
+                            Element folderElmnt = (Element) rutNode;
+                            System.out.println(folderElmnt.getAttribute("description"));
+                            NodeList subFolderElmntLst = folderElmnt.getElementsByTagName("useragent");
+
+                            for (int i = 0; i < subFolderElmntLst.getLength(); i++) {
+                                Node useragentNode = subFolderElmntLst.item(i);
+
+                                if (useragentNode.getNodeType() == Node.ELEMENT_NODE) {
+                                    Element useragentrElmnt = (Element) useragentNode;
+                                    userAgentModel.addElement(new UserAgent(useragentrElmnt.getAttribute("description"), useragentrElmnt.getAttribute("useragent")));
+                                }
+                            }
+                            /*reset counter to zero and clear browse box*/
+                            counter = 0;
+                            userAgentChkList.setModel(userAgentModel);
+                            userAgentListFile.setText("");
+
+                        }
+                    } catch (ParserConfigurationException | SAXException | IOException e) {
+                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Please select file to import first", "Import Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Please select file to import first", "Import Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
 
     }//GEN-LAST:event_actionPerformed
@@ -451,19 +545,26 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu helpMenu;
     private javax.swing.JRadioButton httpRbtn;
     private javax.swing.JRadioButton httpsRbtn;
+    private javax.swing.JButton importBtn;
     private javax.swing.JMenuItem importMenuItem;
     private javax.swing.JTextArea ipListTxtArea;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.ButtonGroup protocolRadioGroup;
     private javax.swing.JButton runBtn;
+    private javax.swing.JList userAgentChkList;
     private javax.swing.JTextField userAgentListFile;
     // End of variables declaration//GEN-END:variables
     private String protocol = "http";
     final private JFileChooser fileChooser = new JFileChooser();
-    private Vector userAgentList = new Vector();
-    int counter=1;
+    private File openUserAgentFile = null;
+    //private Vector<UserAgent> userAgentList = new Vector<UserAgent>();
+    private DefaultListModel userAgentModel = new DefaultListModel();
+    private DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+    private String rootFolder = "Screenshots";
+    int counter = 1;
 }
