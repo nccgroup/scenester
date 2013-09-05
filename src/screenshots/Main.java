@@ -306,16 +306,17 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please enter target URL", "URL's Missing", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+         int result[] = userAgentChkList.getSelectedIndices();
+         
         /* Iterate through all the urls one by one and then open each url with selected user agent header*/
         for (int i = 0; i < urls.length; i++) {
 
-            int result[] = userAgentChkList.getSelectedIndices();
+           
             if (result.length != 0) {
                 for (int j = 0; j < result.length; j++) {
 
                     FirefoxProfile profile = new FirefoxProfile();
-                    UserAgent temp = (UserAgent) userAgentModel.get(result[i]);
+                    UserAgent temp = (UserAgent) userAgentModel.get(result[j]);
                     profile.setPreference("general.useragent.override", temp.getUserAgent());
                     WebDriver driver = new FirefoxDriver(profile);
                     if ((urls[i].indexOf("http://") == -1) && (urls[i].indexOf("https://") == -1)) {
