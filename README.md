@@ -1,4 +1,4 @@
-44Con2013Game
+Scenester
 =============
 
 Scenester - a tool to visually snapshot a website by supplying multiple user-agent. Designed to aid in discovery of different entry points into an application. 
