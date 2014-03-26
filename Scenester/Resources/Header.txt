@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=us-ascii" />
+<title>NCC Group Scenester</title>
+<style>
+body {
+/* IE10 Consumer Preview */ 
+background-image: -ms-radial-gradient(center, circle farthest-corner, #111111 0%, #242424 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-radial-gradient(center, circle farthest-corner, #111111 0%, #242424 100%);
+
+/* Opera */ 
+background-image: -o-radial-gradient(center, circle farthest-corner, #111111 0%, #242424 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #111111), color-stop(1, #242424));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-radial-gradient(center, circle farthest-corner, #111111 0%, #242424 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: radial-gradient(circle farthest-corner at center, #111111 0%, #242424 100%);
+color:#FFFFFF;
+}
+a:link {color:#FFFFFF;}      /* unvisited link */
+a:visited {color:#C7C7C7;}  /* visited link */
+a:hover {color:#E49808;}  /* mouse over link */
+a:active {color:#E49808;}  /* selected link */ 
+table,td,th
+{
+border:0px;
+}
+table
+{
+width:100%;
+}
+#middleImage
+{
+text-align:center;
+vertical-align:middle;
+}
+#previous
+{
+text-align:left;
+vertical-align:middle;
+width: 80px;
+}
+#next
+{
+text-align:right;
+vertical-align:middle;
+width: 80px;
+}
+</style>
+
+</head>
+<body>
+	<table>
+		<tr>
+			<td id="previous">NCC_PREVIOUS_PAGE_LINK</td>
+			<td>NCC_USER_AGENT_DESCRIPTION</td>
+			<td id="next">NCC_NEXT_PAGE_LINK</td>
+		</tr>
+		<tr>
+			<td colspan="3" id="middleImage">
+				<img src="NCC_BODY_TEXT_TO_REPLACE" alt="" />
+			</td>
+		</tr>
+		<tr align="left">
+			<td>&nbsp</td>
+			<td>
+				<div>
+					<p><b>User Agent</b> : NCC_USER_AGENT_STRING</p>
+					<p><b>Url </b> : NCC_SITE_URL_IP</p>
+					<p><b>Final Url </b> : NCC_SITE_FINAL_URL</p>
+					<p><b>Final IP </b> : NCC_SITE_FINAL_IP</p>
+					<p><b>Response Headers </b> : NCC_SITE_FINAL_RESPONSE_HEADERS</p>
+				</div>
+			</td>
+			<td>&nbsp</td>
+		</tr>
+
+	</table>
+</body>
+</html>
+	
+	

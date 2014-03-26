@@ -1,0 +1,9 @@
+<scenester>
+		<useragent description="Android 0.5 - Safari 419" useragent="Mozilla/5.0 (Linux; U; Android 0.5; en-us) AppleWebKit/522  (KHTML, like Gecko) Safari/419.3" />
+		<useragent description="Android 1.1 - Mobile Safari 523" useragent="Mozilla/5.0 (Linux; U; Android 1.1; en-gb; dream) AppleWebKit/525.10  (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2" />
+		<useragent description="iPhone 4" useragent="Mozilla/5.0 (iPhone; CPU iPhone OS 5_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9A405" width="320" height="480" />
+		<useragent description="Android HTC One X - Chrome" useragent="Mozilla/5.0 (Linux; Android 4.0.3; HTC One X Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19" width="720" height="1280" />
+		<useragent description="Samsung Galaxy S3 - Safari" useragent="Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30" width="720" height="1280" />
+		<useragent description="Windows Phone 8 Lumia 920" useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)" width="768" height="1280" />	
+</scenester>
+
