@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scenester.exe" size="229888">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scenester.exe" size="234496">
       <assemblyIdentity name="Scenester" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VS9IpEJTDVJZ9bH+nS/nZZ+FXVY=</dsig:DigestValue>
+        <dsig:DigestValue>ASInjkN4z2ZhwhMbc98CQnR/eyQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

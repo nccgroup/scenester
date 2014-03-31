@@ -43,6 +43,7 @@
             this.importUseragentXml_fdb = new System.Windows.Forms.OpenFileDialog();
             this.screenshot_progressbar = new System.Windows.Forms.ProgressBar();
             this.progress_lbl = new System.Windows.Forms.Label();
+            this.about_lbl = new System.Windows.Forms.Label();
             this.urlip_grpbox.SuspendLayout();
             this.userAgent_grpbox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -51,7 +52,7 @@
             // run_btn
             // 
             this.run_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.run_btn.Location = new System.Drawing.Point(232, 752);
+            this.run_btn.Location = new System.Drawing.Point(232, 765);
             this.run_btn.Name = "run_btn";
             this.run_btn.Size = new System.Drawing.Size(126, 38);
             this.run_btn.TabIndex = 0;
@@ -62,7 +63,7 @@
             // urlip_grpbox
             // 
             this.urlip_grpbox.Controls.Add(this.urlIp_txtarea);
-            this.urlip_grpbox.Location = new System.Drawing.Point(12, 13);
+            this.urlip_grpbox.Location = new System.Drawing.Point(12, 33);
             this.urlip_grpbox.Name = "urlip_grpbox";
             this.urlip_grpbox.Size = new System.Drawing.Size(587, 199);
             this.urlip_grpbox.TabIndex = 1;
@@ -85,7 +86,7 @@
             this.userAgent_grpbox.Controls.Add(this.importUseragent_txt);
             this.userAgent_grpbox.Controls.Add(this.importUseragent_btn);
             this.userAgent_grpbox.Controls.Add(this.userAgent_listbox);
-            this.userAgent_grpbox.Location = new System.Drawing.Point(13, 218);
+            this.userAgent_grpbox.Location = new System.Drawing.Point(12, 238);
             this.userAgent_grpbox.Name = "userAgent_grpbox";
             this.userAgent_grpbox.Size = new System.Drawing.Size(586, 313);
             this.userAgent_grpbox.TabIndex = 2;
@@ -146,7 +147,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.errorMsg_txt);
-            this.groupBox1.Location = new System.Drawing.Point(13, 537);
+            this.groupBox1.Location = new System.Drawing.Point(13, 557);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(587, 141);
             this.groupBox1.TabIndex = 3;
@@ -168,7 +169,7 @@
             // 
             // screenshot_progressbar
             // 
-            this.screenshot_progressbar.Location = new System.Drawing.Point(19, 691);
+            this.screenshot_progressbar.Location = new System.Drawing.Point(19, 704);
             this.screenshot_progressbar.Name = "screenshot_progressbar";
             this.screenshot_progressbar.Size = new System.Drawing.Size(574, 23);
             this.screenshot_progressbar.TabIndex = 4;
@@ -176,17 +177,28 @@
             // progress_lbl
             // 
             this.progress_lbl.AutoSize = true;
-            this.progress_lbl.Location = new System.Drawing.Point(16, 717);
+            this.progress_lbl.Location = new System.Drawing.Point(16, 730);
             this.progress_lbl.Name = "progress_lbl";
             this.progress_lbl.Size = new System.Drawing.Size(114, 17);
             this.progress_lbl.TabIndex = 5;
             this.progress_lbl.Text = "Total :  0/0 Done";
+            // 
+            // about_lbl
+            // 
+            this.about_lbl.AutoSize = true;
+            this.about_lbl.Location = new System.Drawing.Point(553, 10);
+            this.about_lbl.Name = "about_lbl";
+            this.about_lbl.Size = new System.Drawing.Size(45, 17);
+            this.about_lbl.TabIndex = 6;
+            this.about_lbl.Text = "About";
+            this.about_lbl.Click += new System.EventHandler(this.about_lbl_Click);
             // 
             // ScenesterMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 821);
+            this.Controls.Add(this.about_lbl);
             this.Controls.Add(this.progress_lbl);
             this.Controls.Add(this.screenshot_progressbar);
             this.Controls.Add(this.groupBox1);
@@ -227,6 +239,7 @@
         private System.Windows.Forms.RadioButton http_rbtn;
         private System.Windows.Forms.ProgressBar screenshot_progressbar;
         private System.Windows.Forms.Label progress_lbl;
+        private System.Windows.Forms.Label about_lbl;
     }
 }
 

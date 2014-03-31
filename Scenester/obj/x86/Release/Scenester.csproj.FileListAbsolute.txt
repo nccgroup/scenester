@@ -41,3 +41,9 @@ C:\Users\Sharique\Downloads\Scenester\scenester\Scenester\obj\x86\Release\Scenes
 C:\Users\Sharique\Downloads\Scenester\scenester\Scenester\obj\x86\Release\Scenester.application
 C:\Users\Sharique\Downloads\Scenester\scenester\Scenester\obj\x86\Release\Scenester.exe
 C:\Users\Sharique\Downloads\Scenester\scenester\Scenester\obj\x86\Release\Scenester.pdb
+C:\Users\Sharique\Downloads\Scenester\scenester\Scenester\bin\Release\WebDriver.pdb
+C:\Users\Sharique\Downloads\Scenester\scenester\Scenester\bin\Release\WebDriver.xml
+C:\Users\Sharique\Downloads\Scenester\scenester\Scenester\bin\Release\WebDriver.Support.pdb
+C:\Users\Sharique\Downloads\Scenester\scenester\Scenester\bin\Release\WebDriver.Support.xml
+C:\Users\Sharique\Downloads\Scenester\scenester\Scenester\obj\x86\Release\Scenester.csprojResolveAssemblyReference.cache
+C:\Users\Sharique\Downloads\Scenester\scenester\Scenester\obj\x86\Release\Scenester.About.resources

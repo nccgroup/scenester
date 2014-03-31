@@ -324,6 +324,14 @@ namespace Scenester
             Thread.Sleep(300);
             return true;
         }
+
+        private void about_lbl_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.StartPosition = FormStartPosition.CenterParent;
+            DialogResult dialogResult = about.ShowDialog();
+
+        }
         
 
     }
