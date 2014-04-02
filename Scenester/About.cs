@@ -30,7 +30,6 @@ namespace Scenester
         private void nccGroup_linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.nccgroup.com/");
-
         }
     }
 }
