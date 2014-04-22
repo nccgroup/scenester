@@ -118,7 +118,7 @@ namespace Scenester
             }
             catch (Exception e)
             {
-                /*may be handle later, anyway on exception function will return null header object*/
+                /*may be handle later, anyway on exception, function will return null header object*/
             }
             return headers;    
         

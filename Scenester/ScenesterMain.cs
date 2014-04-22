@@ -332,6 +332,23 @@ namespace Scenester
             DialogResult dialogResult = about.ShowDialog();
 
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to exit application ?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+                
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.StartPosition = FormStartPosition.CenterParent;
+            DialogResult dialogResult = about.ShowDialog();
+        }
         
 
     }
