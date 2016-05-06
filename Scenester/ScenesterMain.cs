@@ -13,7 +13,6 @@ using OpenQA.Selenium.Firefox;
 
 // Requires reference to WebDriver.Support.dll
 using OpenQA.Selenium.Support.UI;
-using System.Threading;
 using System.Xml;
 using System.IO;
 using System.Security.AccessControl;

@@ -72,7 +72,7 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(493, 113);
+            this.button1.Location = new System.Drawing.Point(494, 117);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 31);
             this.button1.TabIndex = 3;
@@ -92,19 +92,19 @@
             // nccGroup_linkLabel
             // 
             this.nccGroup_linkLabel.AutoSize = true;
-            this.nccGroup_linkLabel.Location = new System.Drawing.Point(417, 81);
+            this.nccGroup_linkLabel.Location = new System.Drawing.Point(416, 81);
             this.nccGroup_linkLabel.Name = "nccGroup_linkLabel";
-            this.nccGroup_linkLabel.Size = new System.Drawing.Size(168, 17);
+            this.nccGroup_linkLabel.Size = new System.Drawing.Size(170, 17);
             this.nccGroup_linkLabel.TabIndex = 5;
             this.nccGroup_linkLabel.TabStop = true;
-            this.nccGroup_linkLabel.Text = "http://www.nccgroup.com/";
+            this.nccGroup_linkLabel.Text = "http://www.nccgroup.trust/";
             this.nccGroup_linkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.nccGroup_linkLabel_LinkClicked);
             // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 160);
+            this.ClientSize = new System.Drawing.Size(598, 160);
             this.Controls.Add(this.nccGroup_linkLabel);
             this.Controls.Add(this.about_releaseUnder_lbl);
             this.Controls.Add(this.button1);

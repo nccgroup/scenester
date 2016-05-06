@@ -131,9 +131,9 @@
             // 
             // importUseragent_btn
             // 
-            this.importUseragent_btn.Location = new System.Drawing.Point(505, 26);
+            this.importUseragent_btn.Location = new System.Drawing.Point(505, 22);
             this.importUseragent_btn.Name = "importUseragent_btn";
-            this.importUseragent_btn.Size = new System.Drawing.Size(75, 24);
+            this.importUseragent_btn.Size = new System.Drawing.Size(75, 30);
             this.importUseragent_btn.TabIndex = 1;
             this.importUseragent_btn.Text = "Import";
             this.importUseragent_btn.UseVisualStyleBackColor = true;
@@ -143,10 +143,10 @@
             // 
             this.userAgent_listbox.FormattingEnabled = true;
             this.userAgent_listbox.ItemHeight = 17;
-            this.userAgent_listbox.Location = new System.Drawing.Point(6, 56);
+            this.userAgent_listbox.Location = new System.Drawing.Point(7, 58);
             this.userAgent_listbox.Name = "userAgent_listbox";
             this.userAgent_listbox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.userAgent_listbox.Size = new System.Drawing.Size(574, 208);
+            this.userAgent_listbox.Size = new System.Drawing.Size(574, 191);
             this.userAgent_listbox.TabIndex = 0;
             // 
             // groupBox1
