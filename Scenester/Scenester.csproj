@@ -91,10 +91,10 @@
       <HintPath>net40\ThoughtWorks.Selenium.Core.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver">
-      <HintPath>..\..\..\..\Downloads\selenium-dotnet-2.37.0\net40\WebDriver.dll</HintPath>
+      <HintPath>net40\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver.Support">
-      <HintPath>..\..\..\..\Downloads\selenium-dotnet-2.37.0\net40\WebDriver.Support.dll</HintPath>
+      <HintPath>net40\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -142,7 +142,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Scenester_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\header.txt" />

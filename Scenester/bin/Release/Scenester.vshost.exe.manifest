@@ -50,55 +50,55 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Yenag+doi2fDICGjjGBXC/iYOsA=</dsig:DigestValue>
+        <dsig:DigestValue>RSX54hmzh7A/aXd373nrtZ/8YDs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Selenium.WebDriverBackedSelenium.dll" size="662528">
-      <assemblyIdentity name="Selenium.WebDriverBackedSelenium" version="2.37.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Selenium.WebDriverBackedSelenium.dll" size="676352">
+      <assemblyIdentity name="Selenium.WebDriverBackedSelenium" version="2.53.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>V+8PpJqa1DGs65SdbD3niBMalqI=</dsig:DigestValue>
+        <dsig:DigestValue>GuLdM2v9zUg178MTjDWGh8HjOHw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ThoughtWorks.Selenium.Core.dll" size="28672">
-      <assemblyIdentity name="ThoughtWorks.Selenium.Core" version="2.37.0.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="ThoughtWorks.Selenium.Core" version="2.53.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VWLmftp/xIpfIzVqC/8A3Ij8PjY=</dsig:DigestValue>
+        <dsig:DigestValue>lqExD8odVm5QtjxdBGn1gyJ9bGE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WebDriver.dll" size="4023808">
-      <assemblyIdentity name="WebDriver" version="2.37.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WebDriver.dll" size="1579008">
+      <assemblyIdentity name="WebDriver" version="2.53.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>PYBttjr9vzZK3iVLMFq9NKLL1RA=</dsig:DigestValue>
+        <dsig:DigestValue>gtgu/DcKQYuyYB6oumdgMHWHE4I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WebDriver.Support.dll" size="41984">
-      <assemblyIdentity name="WebDriver.Support" version="2.37.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WebDriver.Support.dll" size="56320">
+      <assemblyIdentity name="WebDriver.Support" version="2.53.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>kF3WjHE+TS0f9N0fvV6xh9ztMOY=</dsig:DigestValue>
+        <dsig:DigestValue>Bv7YL4rmbv7OfSGDeCVhqnfNZn0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

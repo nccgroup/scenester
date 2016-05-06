@@ -1,8 +1,0 @@
-C:\Users\Sharique\Documents\NetBeansProjects\Scenester\Scenester\bin\Debug\Scenester.exe
-C:\Users\Sharique\Documents\NetBeansProjects\Scenester\Scenester\bin\Debug\Scenester.pdb
-C:\Users\Sharique\Documents\NetBeansProjects\Scenester\Scenester\obj\x86\Debug\Scenester.ScenesterMain.resources
-C:\Users\Sharique\Documents\NetBeansProjects\Scenester\Scenester\obj\x86\Debug\Scenester.Properties.Resources.resources
-C:\Users\Sharique\Documents\NetBeansProjects\Scenester\Scenester\obj\x86\Debug\Scenester.csproj.GenerateResource.Cache
-C:\Users\Sharique\Documents\NetBeansProjects\Scenester\Scenester\obj\x86\Debug\Scenester.exe
-C:\Users\Sharique\Documents\NetBeansProjects\Scenester\Scenester\obj\x86\Debug\Scenester.pdb
-C:\Users\Sharique\Documents\NetBeansProjects\Scenester\Scenester\obj\x86\Debug\Scenester.csprojResolveAssemblyReference.cache
